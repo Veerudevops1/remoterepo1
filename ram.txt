@@ -1,0 +1,11 @@
+---
+- name: veeru trying to make merge conflicts
+  hosts: all 
+  become: yes
+  tasks:
+    -  name: install apache
+       ansible.builtin.apt:
+         name: httpd
+         state: present
+         update_cache: yes
+      when: ansible_facts['os_family'] == "debain"
