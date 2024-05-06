@@ -9,3 +9,12 @@
          state: present
          update_cache: yes
       when: ansible_facts['os_family'] == "debain"
+      notify: this is to restart jenkins
+    -  name: use of handlers
+       handlers:
+         name: httpd
+	 state: restarted
+	 enabled: yes
+
+
+       
